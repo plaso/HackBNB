@@ -4,20 +4,22 @@ import './App.css'
 import Apartments from './pages/Apartments'
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
+import ApartmentDetail from './pages/ApartmentDetail'
 
 function App() {
   return (
     <div>
       <Navbar />
 
-      <div>
-        
+      <div className='container mt-4'>
+        <Routes>
+          <Route path="/" element={<Home title="Welcome to HackBNB" />} />
+          <Route path="/apartments" element={<Apartments />} />
+          <Route path="/apartments/:apartmentId" element={<ApartmentDetail />} />
+          <Route path="/apartments/contact" element={<Home title="Example" />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
-      <Routes>
-        <Route path="/" element={<Home title="Welcome to HackBNB" />} />
-        <Route path="/apartments" element={<Apartments />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
     </div>
   )
 }

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Cozy Cottage",
+    "location": "Springfield",
+    "price": 1200,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "size": 850,
+    "image": "https://placehold.co/600x400",
+    "description": "A charming little cottage perfect for small families or couples.",
+    "available": true
+  },
+  {
+    "id": 2,
+    "title": "Modern Apartment",
+    "location": "Metropolis",
+    "price": 2000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "size": 1200,
+    "image": "https://placehold.co/600x400",
+    "description": "A spacious apartment located in the heart of the city.",
+    "available": true
+  },
+  {
+    "id": 3,
+    "title": "Luxury Villa",
+    "location": "Beverly Hills",
+    "price": 7500,
+    "bedrooms": 5,
+    "bathrooms": 4,
+    "size": 3500,
+    "image": "https://placehold.co/600x400",
+    "description": "Experience luxury living in this stunning villa with a private pool.",
+    "available": false
+  },
+  {
+    "id": 4,
+    "title": "Rustic Cabin",
+    "location": "Blue Ridge Mountains",
+    "price": 950,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "size": 600,
+    "image": "https://placehold.co/600x400",
+    "description": "A peaceful retreat surrounded by nature.",
+    "available": true
+  },
+  {
+    "id": 5,
+    "title": "Beachside Bungalow",
+    "location": "Malibu",
+    "price": 3200,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "size": 1800,
+    "image": "https://placehold.co/600x400",
+    "description": "Wake up to stunning ocean views every day in this beautiful bungalow.",
+    "available": false
+  }
+]
