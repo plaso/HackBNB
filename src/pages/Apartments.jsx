@@ -4,6 +4,8 @@ import APARTMENTS from '../data/apartments.json'
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
+import axios from 'axios'
+
 const LOCATIONS = APARTMENTS.map(apartment => apartment.location)
 
 const Apartments = () => {
@@ -18,18 +20,27 @@ const Apartments = () => {
 
   console.log(location)
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setApartments(APARTMENTS)
+  //     setIsLoading(false)
+  //   }, 1000);
+  // }, [])
+
   useEffect(() => {
-    setTimeout(() => {
-      setApartments(APARTMENTS)
-      setIsLoading(false)
-    }, 1000);
+    axios.get("https://ironbnb-m3.herokuapp.com/apartments")
+      .then(response => {
+        setApartments(response.data)
+        setIsLoading(false)
+      })
+      .catch(err => console.error(err))
   }, [])
 
   const calculateApartmentsToRender = () => {
     if (apartments.length > 0) {
-      if (location.length > 0) {
-        return apartments.filter(apartment => location.includes(apartment.location))
-      }
+      // if (location.length > 0) {
+      //   return apartments.filter(apartment => location.includes(apartment.location))
+      // }
 
       return apartments
     }
@@ -73,8 +84,8 @@ const Apartments = () => {
 
           <div className='row row-cols-1 row-cols-md-2 g-4'>
             {calculateApartmentsToRender().map(apartment => (
-              <div className='col' key={apartment.id}>
-                <ApartmentCard title={apartment.title} image={apartment.image} location={apartment.location} id={apartment.id}  />
+              <div className='col' key={apartment._id}>
+                <ApartmentCard title={apartment.title} image={apartment.img} id={apartment._id}  />
               </div>
             ))}
           </div>
