@@ -17,7 +17,7 @@ const ApartmentDetail = () => {
     setIsLoading(true)
 
     getApartment(apartmentId)
-      .then(response => setApartment(response.data))
+      .then(response => setApartment(response))
       .catch(err => {
         setShowError(true)
         console.error(err) 

@@ -21,7 +21,7 @@ const Apartments = () => {
   useEffect(() => {
     listApartments()
       .then(response => {
-        setApartments(response.data)
+        setApartments(response)
         setIsLoading(false)
       })
       .catch(err => console.error(err))
