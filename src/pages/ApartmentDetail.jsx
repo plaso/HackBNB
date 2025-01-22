@@ -3,10 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { PuffLoader } from 'react-spinners'
 import APARTMENTS from '../data/apartments.json'
 import ApartmentCard from '../components/ApartmentCard'
-
-const getApartmentById = (id) => {
-  return APARTMENTS.find(apartment => apartment.id === Number(id))
-}
+import { getApartment } from '../services/ApartmentsService'
 
 const ApartmentDetail = () => {
   // Importante recordar que es un string
@@ -19,16 +16,13 @@ const ApartmentDetail = () => {
   useEffect(() => {
     setIsLoading(true)
 
-    setTimeout(() => {
-      const foundApartment = getApartmentById(apartmentId)
-
-      if (foundApartment) {
-        setApartment(foundApartment)
-      } else {
+    getApartment(apartmentId)
+      .then(response => setApartment(response.data))
+      .catch(err => {
         setShowError(true)
-      }
-      setIsLoading(false)
-    }, 1000);
+        console.error(err) 
+      })
+      .finally(() => setIsLoading(false))
   }, [apartmentId])
 
   return (
@@ -52,16 +46,12 @@ const ApartmentDetail = () => {
 
           <div className='row row-cols-1 row-cols-md-2 g-4 mb-3'>
             <div className='col'>
-              <img src={apartment.image} className='w-100' alt="" />
+              <img src={apartment.img} className='w-100' alt="" />
             </div>
             <div className='col'>
               <div>
-                Bathrooms: {apartment.bathrooms}
+                Price: {apartment.pricePerDay}
               </div>
-              <div>
-                Bedrooms: {apartment.bedrooms}
-              </div>
-              <div className={`badge text-bg-${apartment.available ? 'success' : 'danger'}`}>{apartment.available ? 'Available' : 'Not available'}</div>
             </div>
           </div>
 

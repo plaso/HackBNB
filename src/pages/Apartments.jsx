@@ -4,7 +4,7 @@ import APARTMENTS from '../data/apartments.json'
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import axios from 'axios'
+import { listApartments } from '../services/ApartmentsService'
 
 const LOCATIONS = APARTMENTS.map(apartment => apartment.location)
 
@@ -18,17 +18,8 @@ const Apartments = () => {
   const locationParam = searchParams.get('location')
   const location = locationParam ? locationParam.split(',') : []
 
-  console.log(location)
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setApartments(APARTMENTS)
-  //     setIsLoading(false)
-  //   }, 1000);
-  // }, [])
-
   useEffect(() => {
-    axios.get("https://ironbnb-m3.herokuapp.com/apartments")
+    listApartments()
       .then(response => {
         setApartments(response.data)
         setIsLoading(false)
