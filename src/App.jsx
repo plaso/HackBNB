@@ -5,6 +5,7 @@ import Apartments from './pages/Apartments'
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
 import ApartmentDetail from './pages/ApartmentDetail'
+import ApartmentForm from './pages/ApartmentForm'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/apartments" element={<Apartments />} />
           <Route path="/apartments/:apartmentId" element={<ApartmentDetail />} />
           <Route path="/apartments/contact" element={<Home title="Example" />} />
+          <Route path="/apartments/create" element={<ApartmentForm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

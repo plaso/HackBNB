@@ -5,3 +5,5 @@ const http = createHttp()
 export const listApartments = () => http.get('/apartments')
 
 export const getApartment = (id) => http.get(`/apartments/${id}`) 
+
+export const createAparment = (data) => http.post('/apartments', data)

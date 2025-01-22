@@ -11,6 +11,11 @@ const LINKS = [
     to: '/apartments',
     text: 'Apartments'
   },
+  {
+    id: 3,
+    to: '/apartments/create',
+    text: 'Create new apartment'
+  },
 ]
 
 const Navbar = () => {
@@ -46,7 +51,7 @@ const Navbar = () => {
 
             {LINKS.map(linkProps => (
               <li className="nav-item" key={linkProps.id}>
-                <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} aria-current="page" to={linkProps.to}>
+                <NavLink end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} aria-current="page" to={linkProps.to}>
                   {linkProps.text}
                 </NavLink>
             </li>
